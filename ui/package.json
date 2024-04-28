@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "build": "vite build --watch",
+    "dev": "vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
