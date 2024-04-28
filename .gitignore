@@ -1,0 +1,6 @@
+api/.DS_store
+ui/dist/
+ui/node_modules/
+.DS_Store
+__pycache__/
+ui/.DS_Store
