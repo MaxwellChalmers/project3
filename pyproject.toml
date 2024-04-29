@@ -10,6 +10,8 @@ python = "^3.12"
 fastapi = "^0.110.2"
 uvicorn = "^0.29.0"
 vite = "^1.5.2"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.29"}
+asyncpg = "^0.29.0"
 
 [tool.poetry.dev-dependencies]
 black = "^24.4.0"
