@@ -3,7 +3,7 @@ import { createRoot } from "react-dom";
 
 
 
-function ShowFilm({id, title, description}){
+function FilmInfo({id, title, description}){
   return <p>
     <a href={`/film/${id}`}>{title}</a> : {description} 
   </p>
@@ -21,7 +21,7 @@ async function main() {
     films.map((film) => (
       <ul>
         <li>
-          <ShowFilm
+          <FilmInfo
             id={film.id}
             title={film.title}
             description={film.description}
@@ -30,6 +30,15 @@ async function main() {
       </ul>
     ),
   ));
+
+  const filmID = 1;
+  const filmResp = await fetch("film/23" ); 
+  const film = await filmResp.json();
+
+
+ 
+  
+  console.log(film);
 
   console.log("hello world");
 }
