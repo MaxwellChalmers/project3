@@ -66,4 +66,19 @@ async def film(id: int):
     with open("ui/dist/film.html") as file:
         return file.read()
 
+@app.delete("/film/api/v1/film/{id}")
+async def api_v1_film_delete(id: int):
+    Film = await auto_models.get("film")
+
+    async with AsyncSession(engine) as session:
+        query = select(Film).filter(Film.film_id == id)
+        filmResp = await session.execute(query)
+        film = filmResp.scalar()
+        if film:
+            await session.delete(film)
+            await session.commit()
+            return {"ok": True}
+        else:
+            return {"ok": False, "reason": "not found"}
+
 app.mount("/", StaticFiles(directory="ui/dist", html=True), name="ui")

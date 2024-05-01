@@ -14,10 +14,17 @@ function FilmInfoDetailed({film}){
     <p>Price to purchase {film.replacement_cost} </p>
 
     <p><i>Note: Lost DVD's will be considered as a purchase (you will not be refunded the rental fee!)  </i> </p>
+    <button onClick={async () => deleteFilm(film.film_id)}>Delete This Film</button>
   </div>);
 }
 
+async function deleteFilm(id) {
+  fetch(`api/v1/film/${id}`, {
+      method: 'DELETE'
+    })
+  
 
+}
 
 async function main() {
  
